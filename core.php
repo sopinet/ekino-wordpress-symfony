@@ -16,15 +16,23 @@ function symfony_boot()
     $sfContainer = symfony_get_container();
 
     if (!$sfContainer) {
-        require_once sprintf('%s/app/bootstrap.php.cache', WP_SYMFONY_PATH);
-        require_once sprintf('%s/app/AppKernel.php', WP_SYMFONY_PATH);
+
+        if (defined('WP_SYMFONY_VERSION') && WP_SYMFONY_VERSION >= 3.0) {
+            require_once sprintf('%s/app/autoload.php', WP_SYMFONY_PATH);
+            require_once sprintf('%s/app/AppKernel.php', WP_SYMFONY_PATH);
+        } else {
+            require_once sprintf('%s/app/bootstrap.php.cache', WP_SYMFONY_PATH);
+            require_once sprintf('%s/app/AppKernel.php', WP_SYMFONY_PATH);
+        }
 
         $kernel = new AppKernel(WP_SYMFONY_ENVIRONMENT, WP_SYMFONY_DEBUG);
         $kernel->loadClassCache();
         $kernel->boot();
 
         $sfContainer = $kernel->getContainer();
-        $sfContainer->enterScope('request');
+        if (!defined('WP_SYMFONY_VERSION') || WP_SYMFONY_VERSION < 3.0) {
+            $sfContainer->enterScope('request');
+        }
         $sfContainer->set('request', new \Symfony\Component\HttpFoundation\Request(), 'request');
 
         symfony_get_container($sfContainer);

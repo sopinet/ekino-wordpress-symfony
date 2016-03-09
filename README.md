@@ -1,6 +1,6 @@
 # ekino-wordpress-symfony
 
-This is the Ekino Wordpress plugin to interact with Symfony.
+This is the Ekino Wordpress plugin to interact with Symfony 3.
 
 ## Installation
 
@@ -9,6 +9,7 @@ This is the Ekino Wordpress plugin to interact with Symfony.
 1) Put the following lines at the beginning of your `wp-config.php` file, according to your project configuration:
 
 ```php
+define('WP_SYMFONY_SYMFONY', 3.0);
 define('WP_SYMFONY_PATH', __DIR__.'/symfony/');
 define('WP_SYMFONY_ENVIRONMENT', 'dev');
 define('WP_SYMFONY_DEBUG', true);
