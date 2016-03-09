@@ -17,7 +17,7 @@ function symfony_boot()
 
     if (!$sfContainer) {
 
-        if (AppKernel::MAJOR_VERSION > 3) {
+        if (AppKernel::MAJOR_VERSION >= 3) {
             require_once sprintf('%s/app/autoload.php', WP_SYMFONY_PATH);
 
         } else {
