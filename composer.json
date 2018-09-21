@@ -1,5 +1,5 @@
 {
-    "name": "ekino-symfony",
+    "name": "sopinet/ekino-wordpress-symfony",
     "description": "This is a fork of the Ekino Wordpress plugin to interact with Symfony 3.4 (using EkinoWordpressBundle).",
     "repositories":[
         {
