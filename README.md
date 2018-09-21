@@ -1,6 +1,6 @@
 # ekino-wordpress-symfony
 
-This is the Ekino Wordpress plugin to interact with Symfony.
+This is a fork of Ekino Wordpress plugin to interact with Symfony 3.4
 
 ## Installation
 
