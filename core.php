@@ -17,19 +17,12 @@ function symfony_boot()
 
     if (!$sfContainer) {
 
+        require_once sprintf('%s/vendor/autoload.php', WP_SYMFONY_PATH);
         require_once sprintf('%s/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/TerminableInterface.php', WP_SYMFONY_PATH);
         require_once sprintf('%s/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernelInterface.php', WP_SYMFONY_PATH);
         require_once sprintf('%s/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/KernelInterface.php', WP_SYMFONY_PATH);
         require_once sprintf('%s/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php', WP_SYMFONY_PATH);
         require_once sprintf('%s/app/AppKernel.php', WP_SYMFONY_PATH);
-
-        if (AppKernel::MAJOR_VERSION >= 3) {
-            require_once sprintf('%s/app/autoload.php', WP_SYMFONY_PATH);
-
-        } else {
-            require_once sprintf('%s/app/bootstrap.php.cache', WP_SYMFONY_PATH);
-        }
-
 
         $kernel = new AppKernel(WP_SYMFONY_ENVIRONMENT, WP_SYMFONY_DEBUG);
         $kernel->loadClassCache();

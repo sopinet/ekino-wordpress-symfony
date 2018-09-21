@@ -1,0 +1,10 @@
+{
+    "name": "ekino-symfony",
+    "description": "This is a fork of the Ekino Wordpress plugin to interact with Symfony 3.4 (using EkinoWordpressBundle).",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+}
